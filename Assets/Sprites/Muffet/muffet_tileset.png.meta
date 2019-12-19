@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: e9d17bf10f17a1947ad80b9c98fe7dec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8073621222258543979
+    second: muffet_tileset_0
+  - first:
+      213: 9174379701452208835
+    second: ribbon_top
+  - first:
+      213: 7924412440400182795
+    second: pony_tail
+  - first:
+      213: -2436017466020703884
+    second: hair
+  - first:
+      213: 2293350145886188934
+    second: ribbon_bottom
+  - first:
+      213: 5788127288335822100
+    second: hand3
+  - first:
+      213: 3735654070098304815
+    second: dress
+  - first:
+      213: 3777310180874392600
+    second: hand2
+  - first:
+      213: -2935335836305777525
+    second: face
+  - first:
+      213: 294214440967396605
+    second: leg
+  - first:
+      213: 7727791184474953984
+    second: hand1
+  - first:
+      213: 7375961246084037782
+    second: eyes
+  - first:
+      213: 3959723001401044409
+    second: muffet_tileset_11
+  - first:
+      213: 9174379701452208835
+    second: muffet_tileset_1
+  - first:
+      213: 7924412440400182795
+    second: muffet_tileset_2
+  - first:
+      213: -2436017466020703884
+    second: muffet_tileset_3
+  - first:
+      213: 2293350145886188934
+    second: muffet_tileset_4
+  - first:
+      213: 5788127288335822100
+    second: muffet_tileset_5
+  - first:
+      213: 3735654070098304815
+    second: muffet_tileset_6
+  - first:
+      213: 3777310180874392600
+    second: muffet_tileset_7
+  - first:
+      213: -2935335836305777525
+    second: muffet_tileset_8
+  - first:
+      213: 294214440967396605
+    second: muffet_tileset_9
+  - first:
+      213: 7727791184474953984
+    second: muffet_tileset_10
+  - first:
+      213: -8539157851956661125
+    second: muffet_tileset_12
+  - first:
+      213: -4275180915139193841
+    second: muffet_tileset_13
+  - first:
+      213: -25912448372086202
+    second: muffet_tileset_19
+  - first:
+      213: -2547771270215001390
+    second: muffet_tileset_20
+  - first:
+      213: 4656965011501565012
+    second: muffet_tileset_21
+  - first:
+      213: 59316587445851460
+    second: muffet_tileset_22
+  - first:
+      213: -5937656309021748479
+    second: muffet_tileset_24
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: muffet_tileset_0
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 394
+        width: 406.00006
+        height: 359
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.5069638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e01888743dc150478811cd75b3cc748
+      internalID: 8073621222258543979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_3
+      rect:
+        serializedVersion: 2
+        x: 57.999996
+        y: 671
+        width: 100
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec24d92b7c275404b93be1b31505d541
+      internalID: -2436017466020703884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_4
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 539
+        width: 241
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d02d0763a4076e4c90dcee306476549
+      internalID: 2293350145886188934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_5
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 548
+        width: 240
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0772be7490493b142b8e4fd49f81f1ad
+      internalID: 5788127288335822100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 571
+        width: 75
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002bcd10005e1034d8f9b331680c19ce
+      internalID: 3735654070098304815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 599
+        width: 49
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d09ca891818a2479c641da886a7922
+      internalID: 3777310180874392600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 285
+        width: 78
+        height: 209
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068c1094d8116f84a8525be8cedfb9cc
+      internalID: -2935335836305777525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_9
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 287
+        width: 54
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac2d2128ceec21478a9aa3b14cfb1c6
+      internalID: 294214440967396605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_10
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 377
+        width: 314
+        height: 154
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dd1e30acfef7545a7f35e7a686f329
+      internalID: 7727791184474953984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_11
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 372
+        width: 309
+        height: 154
+      alignment: 9
+      pivot: {x: 0.5080906, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b845b2088ae72ec4289c18b74f9b0c30
+      internalID: 3959723001401044409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_12
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 113
+        width: 98.99997
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57aee7f0034ef5f4dade67259da8348f
+      internalID: -8539157851956661125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_13
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 146
+        width: 205
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b86bfc066f6a584aa25a1c358094b73
+      internalID: -4275180915139193841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_19
+      rect:
+        serializedVersion: 2
+        x: 858.00006
+        y: 152
+        width: 204.99994
+        height: 200
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a30939c9106cb84bb96e9d9d589fea5
+      internalID: -25912448372086202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_20
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 111
+        width: 99
+        height: 241
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e15f39491e9d1647945295c08b5f402
+      internalID: -2547771270215001390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 240
+        height: 261
+      alignment: 9
+      pivot: {x: 0.48541668, y: 0.50766283}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cd6f7f7c346734598e900c9486f0d9
+      internalID: 4656965011501565012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_22
+      rect:
+        serializedVersion: 2
+        x: 586.5448
+        y: 218.04779
+        width: 269.91174
+        height: 177.94861
+      alignment: 9
+      pivot: {x: 0.50740737, y: 0.55326205}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded2229e49dd1a34ea7d75e4774c0f2e
+      internalID: 59316587445851460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muffet_tileset_24
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 0
+        width: 273.00006
+        height: 240
+      alignment: 9
+      pivot: {x: 0.49999988, y: 0.48958337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c5477e796a77947a99144068f08e48
+      internalID: -5937656309021748479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e10d08febd877e48936cc31f2a8a576
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 637121317367382668
+  assetBundleName: 
+  assetBundleVariant: 
