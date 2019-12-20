@@ -58,17 +58,15 @@ public class FightManager : MonoBehaviour
                 PlayerPrefab, this.Paths[i].PlayerTransform.position, this.Paths[i].PlayerTransform.rotation);
             var player = playerObject.GetComponent<Player>();
             player.PlayerNumber = i + 1;
-            player.PlayerInput = new PlayerInput(i + 1);
-            //player.AttackTransform = Paths[i].CircleTransform;
+            player.Attack.PlayerInput = new PlayerInput(i + 1);
 
-            //if (RunTestFight)
-            //    player.Attack.AddMovePerformedObserver(_moveRecorder.MovePerformedObserver);
+            if (RunTestFight)
+                player.Attack.AddMoveObserver(_moveRecorder.MovePerformedObserver);
 
             var attackSpawnerObject = Instantiate(
                 AttackSpawnerPrefab, this.Paths[i].AttakSpawnerTransform.position, this.Paths[i].AttakSpawnerTransform.rotation);
             var attackSpawner = attackSpawnerObject.GetComponent<AttackSpawner>();
             attackSpawner.Player = player;
-            //attackSpawner.PlayerCircle = player.Attack;
             attackSpawner.AttackPath = this.Paths[i];
             attackSpawner.MovesData = MovesData;
             attackSpawner.SpawningStartTime = _fightStartTime;

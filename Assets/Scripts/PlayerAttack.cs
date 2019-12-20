@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private LinkedList<BossAttack> IncomingAttacks = new LinkedList<BossAttack>();
-    public float BiggerRadius = 0.5f;
-    public float SmallerRadius = 0.25f;
-    public GameObject BiggerCircle;
-    public GameObject LesserCircle;
-    public Transform Band;
+    public PlayerInput PlayerInput;
 
-    private IList<MoveObserver> _movePerformedObservers = new List<MoveObserver>();
-    public void AddMovePerformedObserver(MoveObserver o) => this._movePerformedObservers.Add(o);
+    private List<BossAttack> _incomingAttacks = new List<BossAttack>();
+    private IDictionary<MoveType, string> ButtonNames = new Dictionary<MoveType, string>();
+    private List<MoveObserver> _moveObservers = new List<MoveObserver>();
 
     private int _playerNumber;
     public int PlayerNumber
@@ -21,57 +16,80 @@ public class PlayerAttack : MonoBehaviour
         get => _playerNumber;
         set
         {
-            _playerNumber = value;
+            this._playerNumber = value;
             foreach (MoveType move in Enum.GetValues(typeof(MoveType)))
                 ButtonNames[move] = move.ToString() + _playerNumber;
         }
     }
 
-    private IDictionary<MoveType, string> ButtonNames = new Dictionary<MoveType, string>();
+    public void AddMoveObserver(MoveObserver observer) => this._moveObservers.Add(observer);
 
+    // Start is called before the first frame update
     void Start()
     {
-        float biggerCircleScale = BiggerRadius / Vector2.Distance(this.transform.position, Band.position);
-        float lesserCircleScale = SmallerRadius / BiggerRadius * biggerCircleScale;
-        Vector3 tmpScale = BiggerCircle.transform.localScale;
-        BiggerCircle.transform.localScale += new Vector3(biggerCircleScale - tmpScale.x, biggerCircleScale - tmpScale.y, 0);
-        tmpScale = LesserCircle.transform.localScale;
-        LesserCircle.transform.localScale += new Vector3(lesserCircleScale - tmpScale.x, lesserCircleScale - tmpScale.y, 0);
+
     }
 
+    // Update is called once per frame
     void Update()
     {
+        CheckAttack();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        BossAttack incomingAttack = collision.gameObject.GetComponent<BossAttack>();
+        if (incomingAttack != null)
+            this._incomingAttacks.Add(incomingAttack);
+    }
+
+    private void CheckAttack()
+    {
+        //// move controller input version
+        
+        //PlayerInputType? input = this.PlayerInput.Input();
+
+        //if (input.HasValue)
+        //{
+        //    MoveType move = PlayerInput.TranslateInput(input.Value);
+        //    //print(move);
+        //    MakeAttack(move);
+        //}
+
+        // keyboard input version
+
         foreach (var pair in ButtonNames)
         {
             if (Input.GetButtonDown(pair.Value))
             {
-                foreach (var observer in _movePerformedObservers)
-                    observer.UpdateObserver(pair.Key);
-
-                foreach (var attack in IncomingAttacks)
-                {
-                    if (Vector2.Distance(attack.transform.position, this.transform.position) > this.BiggerRadius)
-                    {
-                        // sprawdzić, czy odległość od playera nie jest niższa niż kółka od playera
-                        break;
-                    }
-
-                    if (pair.Key == attack.RequiredMove)
-                    {
-                        attack.AttackDefended();
-                        this.IncomingAttacks.Remove(attack);
-                        break;
-                    }
-                }
-
+                MakeAttack(pair.Key);
                 break;
             }
         }
     }
 
-    public void AddAttack(BossAttack attack)
+    private void MakeAttack(MoveType move)
     {
-        attack.OnDestinationReached = () => this?.IncomingAttacks.Remove(attack);
-        IncomingAttacks.AddLast(attack);
+        foreach (MoveObserver observer in this._moveObservers)
+            observer.UpdateAction(move);
+
+        List<BossAttack> attacksToRemove = new List<BossAttack>();
+
+        foreach (BossAttack incomingAttack in this._incomingAttacks)
+        {
+            if (incomingAttack == null)
+            {
+                attacksToRemove.Add(incomingAttack);
+            }
+            else if (move == incomingAttack.RequiredMove)
+            {
+                attacksToRemove.Add(incomingAttack);
+                Destroy(incomingAttack.gameObject);
+                break;
+            }
+        }
+
+        foreach (var a in attacksToRemove)
+            this._incomingAttacks.Remove(a);
     }
 }

@@ -8,7 +8,6 @@ public class AttackSpawner : MonoBehaviour
     public MovementPath AttackPath;
     public MoveSequence MovesData;
     public GameObject AttackPrefab;
-    public PlayerAttack PlayerCircle;
     public Player Player;
     public double? SpawningStartTime;
 
@@ -54,7 +53,6 @@ public class AttackSpawner : MonoBehaviour
             attack.Target = this.Player;
             attack.RequiredMove = move.Move;
             attack.Speed = this.MovesData.Speed;
-            this.PlayerCircle?.AddAttack(attack);
         }
     }
 
