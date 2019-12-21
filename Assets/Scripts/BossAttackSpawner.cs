@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpawner : MonoBehaviour
+public class BossAttackSpawner : MonoBehaviour
 {
     public MovementPath AttackPath;
     public MoveSequence MovesData;
     public GameObject AttackPrefab;
-    public Player Player;
+    public Player Target;
     public double? SpawningStartTime;
 
     private double _firstMoveSpawnTime;
@@ -34,7 +34,7 @@ public class AttackSpawner : MonoBehaviour
 
         foreach (var move in MovesData.MovesInTime)
         {
-            if (this.Player == null)
+            if (this.Target == null)
                 break;
 
             if (isFirstMove)
@@ -50,7 +50,6 @@ public class AttackSpawner : MonoBehaviour
             var attackObject = Instantiate(AttackPrefab, this.transform.position, this.transform.rotation);
             BossAttack attack = attackObject.GetComponent<BossAttack>();
             attack.Path = this.AttackPath.Locations;
-            attack.Target = this.Player;
             attack.RequiredMove = move.Move;
             attack.Speed = this.MovesData.Speed;
         }

@@ -98,7 +98,6 @@ MonoBehaviour:
   Path: []
   Speed: 0.3
   Damage: 10
-  Target: {fileID: 0}
 --- !u!95 &2849602039378453513
 Animator:
   serializedVersion: 3

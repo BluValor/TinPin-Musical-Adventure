@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         _animator.SetFloat("PreviousMoveDelay", _previousMoveDelay);
     }
 
-    public void DamageReceived(float damage)
+    public void ReceiveDamage(float damage)
     {
         _currentHealth -= damage;
         HealthSlider.value = _currentHealth;

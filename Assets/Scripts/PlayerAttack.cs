@@ -84,7 +84,7 @@ public class PlayerAttack : MonoBehaviour
             else if (move == incomingAttack.RequiredMove)
             {
                 attacksToRemove.Add(incomingAttack);
-                Destroy(incomingAttack.gameObject);
+                incomingAttack.AttackDefended();
                 break;
             }
         }

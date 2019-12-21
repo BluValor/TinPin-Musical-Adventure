@@ -65,8 +65,8 @@ public class FightManager : MonoBehaviour
 
             var attackSpawnerObject = Instantiate(
                 AttackSpawnerPrefab, this.Paths[i].AttakSpawnerTransform.position, this.Paths[i].AttakSpawnerTransform.rotation);
-            var attackSpawner = attackSpawnerObject.GetComponent<AttackSpawner>();
-            attackSpawner.Player = player;
+            var attackSpawner = attackSpawnerObject.GetComponent<BossAttackSpawner>();
+            attackSpawner.Target = player;
             attackSpawner.AttackPath = this.Paths[i];
             attackSpawner.MovesData = MovesData;
             attackSpawner.SpawningStartTime = _fightStartTime;

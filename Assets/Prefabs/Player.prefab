@@ -523,7 +523,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -536,11 +536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7602189945892486796}
     m_Modifications:
-    - target: {fileID: 3573560205536634782, guid: 30ce3a6d0b722be479fef9599ef47b56,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerAttack
-      objectReference: {fileID: 0}
     - target: {fileID: 655831689023168748, guid: 30ce3a6d0b722be479fef9599ef47b56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,6 +605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573560205536634782, guid: 30ce3a6d0b722be479fef9599ef47b56,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30ce3a6d0b722be479fef9599ef47b56, type: 3}

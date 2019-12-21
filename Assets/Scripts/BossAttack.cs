@@ -8,11 +8,10 @@ public class BossAttack : MonoBehaviour
     public Transform[] Path;
     public float Speed = 0.2f;
     public float Damage = 10.0f;
-    public Player Target;
-    public Action OnDestinationReached;
 
     private int _position = 0;
     private Animator _animator;
+    private bool _destinationReached = false;
 
     private MoveType _requiredMove;
     public MoveType RequiredMove
@@ -41,18 +40,11 @@ public class BossAttack : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-
-        if (this.transform.position.Equals(Path[Path.Length - 1].position))
-        {
-            Target?.DamageReceived(this.Damage);
-            OnDestinationReached?.Invoke();
-            Destroy(this.gameObject);
-        }
     }
 
     void Move()
     {
-        if (Target == null)
+        if (this._destinationReached)
         {
             Destroy(this.gameObject);
             return;
@@ -64,10 +56,15 @@ public class BossAttack : MonoBehaviour
         if (realDistance < stepDistance)
         {
             if (_position + 2 == Path.Length)
+            {
                 this.transform.position = Path[_position + 1].position;
+                this._destinationReached = true;
+            }
             else
+            {
                 this.transform.position = Vector2.MoveTowards(
                     Path[_position + 1].position, Path[_position + 2].position, stepDistance - realDistance);
+            }
 
             _position++;
         }
@@ -81,5 +78,15 @@ public class BossAttack : MonoBehaviour
     public void AttackDefended()
     {
         Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player target = collision.gameObject.GetComponent<Player>();
+        if (target != null)
+        {
+            target.ReceiveDamage(this.Damage);
+            Destroy(this.gameObject);
+        }
     }
 }
