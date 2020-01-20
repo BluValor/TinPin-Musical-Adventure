@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RecordReader
 {
-    public MoveSequence MovesData = new MoveSequence();
+    public FightData MovesData = new FightData();
 
     public RecordReader(string dataPath)
     {
@@ -13,6 +13,6 @@ public class RecordReader
         string text = reader.ReadToEnd();
         reader.Close();
         //MovesData.MovesInTime = JsonArrayHelper.FromJson<MoveData>(text);
-        MovesData = JsonUtility.FromJson(text, typeof(MoveSequence)) as MoveSequence;
+        MovesData = JsonUtility.FromJson(text, typeof(FightData)) as FightData;
     }
 }

@@ -75,7 +75,7 @@ public class PlayerInput
         //float input0 = -2.0f;
         while (true)
         {
-            var state = Joystick.GetState(1);
+            var state = Joystick.GetState(this._controllerNumber - 1);
             if (state.IsConnected)
                 CheckMoves3(state);
             Thread.Sleep(5);

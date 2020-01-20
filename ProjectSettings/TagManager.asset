@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Attacks
-  - 
-  - 
+  - Boss
+  - Effects_Background
   - 
   - 
   - 
@@ -38,12 +38,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 1390359519
+    locked: 0
+  - name: BossBackground
+    uniqueID: 3717001861
+    locked: 0
+  - name: BossAttacks
+    uniqueID: 2975568977
     locked: 0
   - name: Boss
     uniqueID: 450547371
     locked: 0
   - name: Player
     uniqueID: 1886011309
+    locked: 0
+  - name: PlayerAttacks
+    uniqueID: 2508287601
+    locked: 0
+  - name: Foreground
+    uniqueID: 650575081
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

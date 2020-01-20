@@ -9,7 +9,6 @@ public class FightManager : MonoBehaviour
 
     public string DataPath;
     public string MoveHistoryDestination;
-    public int NumberOfPlayers;
 
     public MovementPath[] Paths;
     public float[][] Delays;
@@ -17,10 +16,14 @@ public class FightManager : MonoBehaviour
     public GameObject AttackSpawnerPrefab;
     public GameObject MusicManagerPrefab;
     public AudioClip Tune;
-    public float MusicDelay = 5.0f;
+    public double MusicDelay = 5.0f;
+    public double SpawnDelay;
+    public EndMenu EndMenu;
+    public BossAnimation BossAnimation;
 
     private double _fightStartTime;
     private MoveRecorder _moveRecorder;
+    private List<Player> _players = new List<Player>();
 
     void Start()
     {
@@ -29,8 +32,7 @@ public class FightManager : MonoBehaviour
         var musicManager = musicManagerObject.GetComponent<MusicManager>();
         musicManager.Tune.clip = this.Tune;
         musicManager.PlayMusicStartTime = _fightStartTime;
-
-        MoveSequence MovesData;
+        this.BossAnimation.MoveStartTime = _fightStartTime;
 
         if (RunTestFight)
         {
@@ -41,40 +43,72 @@ public class FightManager : MonoBehaviour
             if (MoveHistoryDestination != null)
                 _moveRecorder.SaveFilePath = MoveHistoryDestination;
 
-            MovesData = new MoveSequence();
-            MovesData.Speed = this.TestFightAttackSpeed;
-            MovesData.MovesInTime = new MoveData[] { new MoveData(MoveType.Forward, 0) };
+            MoveSequence movesData = new MoveSequence();
+            movesData.Speed = this.TestFightAttackSpeed;
+            movesData.MovesInTime = new MoveData[] { new MoveData(MoveType.Forward, 0) };
+
+            for (int i = 0; i < GameSettings.PlayerNumber; i++)
+            {
+                Player newPlayer = SpawnPlayer(i + 1, i, movesData);
+                this._players.Add(newPlayer);
+            }
         }
         else
         {
             var recordReader = new RecordReader(this.DataPath);
-            MovesData = recordReader.MovesData;
-        }
+            FightData fightData = recordReader.MovesData;
 
-        
-        for (int i = 0; i < NumberOfPlayers; i++)
-        {
-            var playerObject = Instantiate(
-                PlayerPrefab, this.Paths[i].PlayerTransform.position, this.Paths[i].PlayerTransform.rotation);
-            var player = playerObject.GetComponent<Player>();
-            player.PlayerNumber = i + 1;
-            player.Attack.PlayerInput = new PlayerInput(i + 1);
+            this.BossAnimation.AnimationSpeed = fightData.BossAnimationSpeed;
 
-            if (RunTestFight)
-                player.Attack.AddMoveObserver(_moveRecorder.MovePerformedObserver);
-
-            var attackSpawnerObject = Instantiate(
-                AttackSpawnerPrefab, this.Paths[i].AttakSpawnerTransform.position, this.Paths[i].AttakSpawnerTransform.rotation);
-            var attackSpawner = attackSpawnerObject.GetComponent<BossAttackSpawner>();
-            attackSpawner.Target = player;
-            attackSpawner.AttackPath = this.Paths[i];
-            attackSpawner.MovesData = MovesData;
-            attackSpawner.SpawningStartTime = _fightStartTime;
+            for (int i = 1; i <= GameSettings.PlayerNumber; i++)
+            {
+                Player newPlayer = SpawnPlayer(i, i - 1, fightData.GetMovesForPlayerNumber(i));
+                this._players.Add(newPlayer);
+            }
         }
     }
-    
-    void Update()
+
+    private Player SpawnPlayer(int playerNumber, int index, MoveSequence moves)
     {
-        
+        var playerObject = Instantiate(
+            PlayerPrefab, this.Paths[index].PlayerTransform.position, this.Paths[index].PlayerTransform.rotation);
+        Player player = playerObject.GetComponent<Player>();
+        if (playerObject.transform.position.x < this.gameObject.transform.position.x)
+            player.IsFlipped = true;
+        player.PlayerNumber = playerNumber;
+        player.Attack.PlayerInput = new PlayerInput(playerNumber);
+
+        PlayerDeathObserver observer = new PlayerDeathObserver();
+        observer.UpdateAction = this.OnPlayerDeath;
+        player.AddPlayerDeathObserver(observer);
+
+        if (RunTestFight)
+            player.Attack.AddMoveObserver(_moveRecorder.MovePerformedObserver);
+
+        var attackSpawnerObject = Instantiate(
+            AttackSpawnerPrefab, this.Paths[index].AttakSpawnerTransform.position, this.Paths[index].AttakSpawnerTransform.rotation);
+        var attackSpawner = attackSpawnerObject.GetComponent<BossAttackSpawner>();
+        attackSpawner.Target = player;
+        attackSpawner.AttackPath = this.Paths[index];
+        attackSpawner.MovesData = moves;
+        attackSpawner.SpawnDelay = this.SpawnDelay;
+        attackSpawner.SpawningStartTime = this._fightStartTime;
+
+        return player;
+    }
+
+    public void OnPlayerDeath(Player player)
+    {
+        print(this._players.Count + ", " + player.PlayerNumber);
+
+        this._players.Remove(player);
+        if (this._players.Count == 0)
+            OnFightEnd();
+
+    }
+
+    public void OnFightEnd()
+    {
+        this.EndMenu.GameResult = this._players.Count == 0 ? GameResult.Defeat : GameResult.Victory;
     }
 }

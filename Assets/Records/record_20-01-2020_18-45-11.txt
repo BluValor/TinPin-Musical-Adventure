@@ -1,0 +1,17 @@
+{
+    "BossAnimationSpeed": 1.0,
+    "PlayerNumbers": [
+        1
+    ],
+    "MoveSequences": [
+        {
+            "Speed": 1.7999999523162842,
+            "MovesInTime": [
+                {
+                    "Move": 4,
+                    "Delay": 1.7573333333339179
+                }
+            ]
+        }
+    ]
+}
