@@ -8,7 +8,7 @@ TinPin Musical Adventure is a rhythmic game written for a [TinPin Motion Control
 </div>
 
 ## :video_game: Screenshots
-<div align="justify">
+<p align="justify">
   <img src="https://github.com/BluValor/TinPin-Musical-Adventure/blob/master/Readme/tinpin3.png" alt="TinPin" width="800">
   <img src="https://github.com/BluValor/TinPin-Musical-Adventure/blob/master/Readme/tinpin4.png" alt="TinPin" width="800">
-</div>
+</p>
